@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <headerWrapper :style="{height:screenHeight+'px'}"></headerWrapper>
+    <headerWrapper :style="{height:screenHeight+'px'}" :headerBackgroundImage="headerImage"></headerWrapper>
     <article class="article">
       <div class="article-head">
         <main>
@@ -8,22 +8,21 @@
         </main>
         <div class="sidebar">
           <div class="toppic">
-            <li><a href="/more/life/3.html" title="安静地做一个爱设计的女子" target="_blank"><i><img
-              src="http://www.yangqq.com/d/file/news/life/2018-06-17/917d732926d79cc2ae1012831ce51d1e.jpg"></i>
-              <h2>安静地做一个爱设计的女子</h2>
-              <span>慢生活</span> </a></li>
-            <li><a href="/more/study/1/1.html" title="个人博客，属于我的小世界！" target="_blank"><i><img
-              src="http://www.yangqq.com/d/file/news/life/2018-04-27/762f99f369ae786f970477feeb3b9d77.jpg"></i>
-              <h2>个人博客，属于我的小世界！</h2>
-              <span>目录1</span> </a></li>
+            <li v-for="at in articles">
+              <a :href="at.href" :title="at.title" target="_blank">
+                <i><img :src="at.img"></i>
+                <h2>{{at.title}}</h2>
+                <span>{{at.tag}}</span>
+              </a>
+            </li>
           </div>
         </div>
       </div>
       <div class="blogs" data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="1"
            data-scroll-reveal-initialized="true">
-        <h3 class="blogtitle"><a href="/more/show/19.html" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
-        <span class="blogpic"><a href="/more/show/19.html" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
-          src="http://www.yangqq.com/d/file/news/life/2018-06-29/75842f4d1e18d692a66c38eb172a40ab.jpg"
+        <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
+        <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
+          src="static/img/3.jpg"
           alt="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"></a></span>
 
         <p class="blogtext">曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的... </p>
@@ -37,16 +36,16 @@
         <div class="bloginfo">
           <ul>
             <li class="timer"><i class="el-icon-yonghu1"> Sammy</i></li>
-            <li class="timer"><i class="el-icon-shijian"> 2018-07-16</i></li>
+            <li class="timer"><i class="el-icon-shijian"> 2018-10-08</i></li>
             <li class="view"><i class="el-icon-yanjing"><span> 2</span>已阅读</i></li>
           </ul>
         </div>
       </div>
       <div class="blogs" data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="1"
            data-scroll-reveal-initialized="true">
-        <h3 class="blogtitle"><a href="/more/show/19.html" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
-        <span class="blogpic"><a href="/more/show/19.html" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
-          src="http://www.yangqq.com/d/file/news/life/2018-06-29/75842f4d1e18d692a66c38eb172a40ab.jpg"
+        <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
+        <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
+          src="static/img/3.jpg"
           alt="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"></a></span>
 
         <p class="blogtext">曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的... </p>
@@ -60,15 +59,15 @@
         <div class="bloginfo">
           <ul>
             <li class="timer"><i class="el-icon-yonghu1"> Sammy</i></li>
-            <li class="timer"><i class="el-icon-shijian"> 2018-07-16</i></li>
+            <li class="timer"><i class="el-icon-shijian"> 2018-10-08</i></li>
             <li class="view"><i class="el-icon-yanjing"><span> 2</span>已阅读</i></li>
           </ul>
         </div>
       </div>
       <div class="blogs" data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="1"
            data-scroll-reveal-initialized="true">
-        <h3 class="blogtitle"><a href="/more/show/19.html" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
-        <span class="blogpic"><a href="/more/show/19.html" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"></a></span>
+        <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
+        <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"></a></span>
 
         <p class="blogtext">曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的... </p>
         <div class="label-tag">
@@ -81,16 +80,16 @@
         <div class="bloginfo">
           <ul>
             <li class="timer"><i class="el-icon-yonghu1"> Sammy</i></li>
-            <li class="timer"><i class="el-icon-shijian"> 2018-07-16</i></li>
+            <li class="timer"><i class="el-icon-shijian"> 2018-10-08</i></li>
             <li class="view"><i class="el-icon-yanjing"><span> 2</span>已阅读</i></li>
           </ul>
         </div>
       </div>
       <div class="blogs" data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="1"
            data-scroll-reveal-initialized="true">
-        <h3 class="blogtitle"><a href="/more/show/19.html" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
-        <span class="blogpic"><a href="/more/show/19.html" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
-          src="http://www.yangqq.com/d/file/news/life/2018-06-29/75842f4d1e18d692a66c38eb172a40ab.jpg"
+        <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
+        <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
+          src="static/img/3.jpg"
           alt="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"></a></span>
 
         <p class="blogtext">曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的... </p>
@@ -104,27 +103,44 @@
         <div class="bloginfo">
           <ul>
             <li class="timer"><i class="el-icon-yonghu1"> Sammy</i></li>
-            <li class="timer"><i class="el-icon-shijian"> 2018-07-16</i></li>
+            <li class="timer"><i class="el-icon-shijian"> 2018-10-08</i></li>
             <li class="view"><i class="el-icon-yanjing"><span> 2</span>已阅读</i></li>
           </ul>
         </div>
       </div>
     </article>
+    <foote></foote>
   </div>
 </template>
 
 <script>
   import headerWrapper from '@/components/home/layouts/header'
   import carousel from '@/components/home/layouts/carousel'
+  import foote from '@/components/home/layouts/footer'
 
   export default {
     name: 'Index',
-    components: {headerWrapper, carousel},
+    components: {headerWrapper, carousel,foote},
     data: function () {
       return {
         screenHeight: (window.innerHeight),
         scrollTop: 0,
         scrollStatus: true,
+        headerImage: "/static/img/40.jpg",
+        articles: [
+          {
+            href: "#1",
+            title: "安静地做一个爱设计的女子",
+            tag: "慢生活",
+            img: "/static/img/1.jpg"
+          },
+          {
+            href: "#2",
+            title: "个人博客，属于我的小世界！",
+            tag: "目录1",
+            img: "/static/img/2.jpg"
+          },
+        ],
       }
     },
     mounted() {
@@ -288,7 +304,7 @@
   }
 
   .blogs .blogtitle a {
-    color: #555;
+    color: #303133;
     text-decoration: none;
   }
 
@@ -303,7 +319,7 @@
 
   .blogs .blogtext {
     font-size: 14px;
-    color: #566573;
+    color: #606266;
     overflow: hidden;
     text-overflow: ellipsis;
     -webkit-box-orient: vertical;

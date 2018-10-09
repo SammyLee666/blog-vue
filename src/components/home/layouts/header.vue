@@ -1,7 +1,7 @@
 <template>
   <el-row class="headerWrapper">
     <header class="header"
-            style="background-image: url('https://annie-header-bg-1253939655.cos.ap-beijing.myqcloud.com/40.jpg')">
+            :style="{backgroundImage: 'url('+headerBackgroundImage+')'}">
       <div class="header-container">
         <h1>
           <a href="/" class="router-link-active"><img
@@ -26,6 +26,8 @@
   export default {
     name: "headerWrapper",
     components: {Navbar},
+    props:['headerBackgroundImage'],
+
   }
 
 
