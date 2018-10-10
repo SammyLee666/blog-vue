@@ -18,7 +18,29 @@
           </div>
         </div>
       </div>
-      <div class="blogs" data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="1"
+      <div class="blogs reveal-top">
+        <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
+        <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
+          src="static/img/3.jpg"
+          alt="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"></a></span>
+
+        <p class="blogtext">曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的... </p>
+        <div class="label-tag">
+          <ul>
+            <li class="timer"><i class="el-icon-biaoqian"> GoLang </i></li>
+            <li class="timer"><i class="el-icon-biaoqian"> PHP </i></li>
+            <li class="timer"><i class="el-icon-biaoqian"> JavaScript </i></li>
+          </ul>
+        </div>
+        <div class="bloginfo">
+          <ul>
+            <li class="timer"><i class="el-icon-yonghu1"> Sammy</i></li>
+            <li class="timer"><i class="el-icon-shijian"> 2018-10-08</i></li>
+            <li class="view"><i class="el-icon-yanjing"><span> 2</span>已阅读</i></li>
+          </ul>
+        </div>
+      </div>
+      <div class="blogs reveal-top"
            data-scroll-reveal-initialized="true">
         <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
         <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
@@ -41,30 +63,7 @@
           </ul>
         </div>
       </div>
-      <div class="blogs" data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="1"
-           data-scroll-reveal-initialized="true">
-        <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
-        <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
-          src="static/img/3.jpg"
-          alt="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"></a></span>
-
-        <p class="blogtext">曾经有站长找我求助，他说他不知道该怎么办，自己做出来的网站，不仅没有得到大家的认可，反而让大家给他开了一个评判大会。他自己认为已经是做的最好的，却遭受大家无情的... </p>
-        <div class="label-tag">
-          <ul>
-            <li class="timer"><i class="el-icon-biaoqian"> GoLang </i></li>
-            <li class="timer"><i class="el-icon-biaoqian"> PHP </i></li>
-            <li class="timer"><i class="el-icon-biaoqian"> JavaScript </i></li>
-          </ul>
-        </div>
-        <div class="bloginfo">
-          <ul>
-            <li class="timer"><i class="el-icon-yonghu1"> Sammy</i></li>
-            <li class="timer"><i class="el-icon-shijian"> 2018-10-08</i></li>
-            <li class="view"><i class="el-icon-yanjing"><span> 2</span>已阅读</i></li>
-          </ul>
-        </div>
-      </div>
-      <div class="blogs" data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="1"
+      <div class="blogs reveal-top"
            data-scroll-reveal-initialized="true">
         <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
         <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"></a></span>
@@ -85,7 +84,7 @@
           </ul>
         </div>
       </div>
-      <div class="blogs" data-scroll-reveal="enter bottom over 1s" data-scroll-reveal-id="1"
+      <div class="blogs reveal-top"
            data-scroll-reveal-initialized="true">
         <h3 class="blogtitle"><a href="#" target="_blank">作为一个设计师,如果遭到质疑你是否能恪守自己的原则</a></h3>
         <span class="blogpic"><a href="#" title="作为一个设计师,如果遭到质疑你是否能恪守自己的原则"><img
@@ -114,15 +113,23 @@
 </template>
 
 <script>
+  import Vue from 'vue'
+  import ElementUI from 'element-ui';
+  import scrollReveal from 'scrollreveal';
+  import 'element-ui/lib/theme-chalk/index.css';
+  import '@/assets/icons/iconfont.css'
   import headerWrapper from '@/components/home/layouts/header'
   import carousel from '@/components/home/layouts/carousel'
   import foote from '@/components/home/layouts/footer'
 
+  Vue.use(ElementUI);
+
   export default {
     name: 'Index',
-    components: {headerWrapper, carousel,foote},
+    components: {headerWrapper, carousel, foote},
     data: function () {
       return {
+        scrollReveal: scrollReveal(),
         screenHeight: (window.innerHeight),
         scrollTop: 0,
         scrollStatus: true,
@@ -145,9 +152,11 @@
     },
     mounted() {
       const that = this;
+
       window.onresize = function () {
         that.screenHeight = (window.innerHeight);
       };
+
       document.onscroll = function () {
         //下滑
         if (that.scrollTop < document.scrollingElement.scrollTop && that.scrollStatus) {
@@ -168,7 +177,6 @@
 
         that.scrollTop = document.scrollingElement.scrollTop;
 
-
         if (that.scrollTop) {
           $(".header-container").stop().hide(300)
         } else {
@@ -176,6 +184,24 @@
         }
       };
 
+      this.scrollReveal.reveal('.reveal-top', {
+        // 动画的时长
+        duration: 700,
+        // 延迟时间
+        // delay: 500,
+        // 动画开始的位置，'bottom', 'left', 'top', 'right'
+        origin: 'top',
+        // 回滚的时候是否再次触发动画
+        reset: true,
+        // 在移动端是否使用动画
+        mobile: true,
+        // 滚动的距离，单位可以用%，rem等
+        // distance: '200px',
+        // 其他可用的动画效果
+        opacity: 0.001,
+        easing: 'linear',
+        scale: 0.9,
+      });
 
     }
 
